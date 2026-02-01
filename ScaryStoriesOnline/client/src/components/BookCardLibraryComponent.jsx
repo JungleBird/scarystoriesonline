@@ -36,17 +36,33 @@ export default function LandingPage() {
 
   // Update search term when transcript changes
   useEffect(() => {
+    console.log('Transcript updated:', transcript);
     if (transcript) {
       setSearchTerm(transcript);
     }
   }, [transcript]);
 
-  const toggleListening = () => {
+  const toggleListening = async () => {
+    if (!browserSupportsSpeechRecognition) {
+      alert('Your browser does not support speech recognition. Please use Chrome, Edge, or Safari.');
+      return;
+    }
+
     if (listening) {
       SpeechRecognition.stopListening();
     } else {
       resetTranscript();
-      SpeechRecognition.startListening({ continuous: true });
+      setSearchTerm(""); // Clear the search term when starting to listen
+      try {
+        await SpeechRecognition.startListening({ 
+          continuous: true,
+          language: 'en-US'
+        });
+        console.log('Speech recognition started');
+      } catch (error) {
+        console.error('Error starting speech recognition:', error);
+        alert('Unable to start voice input. Please check microphone permissions in your browser settings.');
+      }
     }
   };
 
