@@ -20,7 +20,7 @@ import ProfileComponent from "./components/ProfileComponent.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Router basename="/ScaryStoriesOnline">
+    <Router basename="/scarystoriesonline">
       <Routes>
         <Route element={<LayoutComponent />}>
           <Route index element={<BookCardLibraryComponent />} />
