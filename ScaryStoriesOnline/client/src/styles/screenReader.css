@@ -1,0 +1,149 @@
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+.material-icons.md-64 {
+  font-size: 64px;
+}
+.material-icons.md-96 {
+  font-size: 96px;
+}
+.material-icons.md-128 {
+  font-size: 128px;
+}
+
+.material-symbols-outlined.md-18 {
+  font-size: 18px;
+}
+.material-symbols-outlined.md-24 {
+  font-size: 24px;
+}
+.material-symbols-outlined.md-36 {
+  font-size: 36px;
+}
+.material-symbols-outlined.md-48 {
+  font-size: 48px;
+}
+.material-symbols-outlined.md-64 {
+  font-size: 64px;
+}
+.material-symbols-outlined.md-96 {
+  font-size: 96px;
+}
+.material-symbols-outlined.md-128 {
+  font-size: 128px;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: black;
+}
+
+.text-scroll-area-container {
+  display: flex;
+  flex-direction: column;
+  top: 10vh;
+  position: -webkit-sticky;
+  text-align: left;
+
+  color: white;
+  background-color: black;
+  height: 70vh;
+  width: 60vw;
+  padding-bottom: 15px;
+  border-radius: 15px;
+}
+
+.text-scroll-area {
+  padding: 0 20px 0 20px;
+  font-size: 24px;
+  overflow-y: auto;
+  position: relative;
+  height: 90%;
+
+  & q {
+    font-style: italic;
+  }
+
+  & p {
+    padding: 5px;
+  }
+
+  & p:nth-child(6):first-letter {
+    font-size: 36px;
+    font-weight: bold;
+  }
+}
+
+.title-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 10%;
+  background: rgba(128, 128, 128, 0.2);
+  top: 0;
+  padding: 0 50px 0 50px;
+
+  & h1 {
+    font-size: 36px;
+    font-weight: bold;
+  }
+}
+
+.paragraph-container {
+  position: absolute;
+  top: 0;
+}
+
+.text-paragraph {
+  color: rgb(122, 122, 122);
+  transition: opacity 0.4s ease-out;
+  opacity: 0.08;
+}
+
+.text-paragraph.show {
+  color: white;
+  transition: opacity 0.3s ease-in;
+  text-shadow:
+    0 0 10px rgba(255, 123, 0, 0.6),
+    0 0 20px rgba(255, 123, 0, 0.4),
+    0 0 40px rgba(255, 123, 0, 0.2);
+  opacity: 1;
+}
+
+.text-paragraph.fade-in {
+  transition: opacity 0.8s ease-out;
+  opacity: 0.6;
+}
+
+.text-paragraph.fade-out {
+  transition: opacity 0.4s ease-out;
+  opacity: 0;
+}
+
+html::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: black;
+  background-size: 50px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}

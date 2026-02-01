@@ -1,0 +1,258 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.profile-page-title {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.profile-book-wrapper {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Hardcover - back layer */
+.profile-book-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -22px;
+  right: -22px;
+  bottom: -8px;
+  background: linear-gradient(135deg, rgb(40, 60, 60) 0%, rgb(20, 40, 40) 100%);
+  border-radius: 4px 12px 12px 4px;
+  z-index: 0;
+}
+
+/* Stacked pages - left side */
+.profile-pages-stack-left {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: -8px;
+  width: 8px;
+  bottom: 0px;
+  background: linear-gradient(
+    to left,
+    rgb(200, 195, 185) 0%,
+    rgb(180, 175, 165) 20%,
+    rgb(190, 185, 175) 40%,
+    rgb(175, 170, 160) 60%,
+    rgb(185, 180, 170) 80%,
+    rgb(170, 165, 155) 100%
+  );
+  border-radius: 2px 0 0 2px;
+  z-index: 1;
+  box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Right side stacked pages */
+.profile-pages-stack-right {
+  position: absolute;
+  top: 4px;
+  right: -8px;
+  width: 8px;
+  bottom: 0px;
+  background: linear-gradient(
+    to right,
+    rgb(200, 195, 185) 0%,
+    rgb(180, 175, 165) 20%,
+    rgb(190, 185, 175) 40%,
+    rgb(175, 170, 160) 60%,
+    rgb(185, 180, 170) 80%,
+    rgb(170, 165, 155) 100%
+  );
+  border-radius: 0 2px 2px 0;
+  z-index: 1;
+  box-shadow: inset 2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.profile-book {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(40, 60, 60, 1);
+  border-radius: 8px;
+  box-shadow:
+    0px 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0px 2px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.profile-page {
+  flex: 1;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-page-left {
+  align-items: center;
+  background-color: rgb(40, 40, 40);
+}
+
+.profile-page-right {
+  background-color: rgb(50, 50, 50);
+}
+
+.profile-spine {
+  width: 4px;
+  background: linear-gradient(
+    to bottom,
+    rgba(56, 56, 56, 0.5),
+    rgba(134, 134, 134, 0.8),
+    rgba(56, 56, 56, 0.5)
+  );
+  box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.5);
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: rgba(60, 60, 60, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-avatar-icon {
+  font-size: 64px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.profile-fields {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profile-field label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.profile-field-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(30, 30, 30, 0.6);
+  padding: 12px 15px;
+  border-radius: 6px;
+  color: white;
+  font-size: 1rem;
+  gap: 10px;
+  min-height: 40px;
+}
+
+.profile-edit-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+.profile-edit-btn:hover {
+  color: #ff7b00;
+  background: transparent;
+  border: none;
+}
+
+.profile-edit-btn:focus {
+  outline: 2px solid rgba(255, 123, 0, 0.5);
+  outline-offset: 2px;
+}
+
+.profile-edit-btn .material-icons {
+  font-size: 20px;
+}
+
+.profile-section-title {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+.profile-stories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-story-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(30, 30, 30, 0.6);
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 3px solid #ff7b00;
+}
+
+.profile-story-title {
+  color: white;
+  font-weight: 500;
+}
+
+.profile-story-checkouts {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+.profile-empty-message {
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-book {
+    flex-direction: column;
+  }
+
+  .profile-spine {
+    width: 100%;
+    height: 4px;
+  }
+}

@@ -1,0 +1,45 @@
+[
+
+  {
+    "id": "faces",
+    "title": "Faces",
+    "chapter": "",
+    "storyFile": "facesStory"
+  },
+  {
+    "id": "vermintide-story",
+    "title": "The Doom of Kavzar",
+    "chapter": "",
+    "storyFile": "vermintideStory"
+  },
+  {
+    "id": "okiku-ghost-story",
+    "title": "The Ghost of Okiku",
+    "chapter": "",
+    "storyFile": "okikuGhostStory"
+  },
+  {
+    "id": "warhammer-story",
+    "title": "The Last Hunt",
+    "chapter": "Bioship",
+    "storyFile": "warhammerStory"
+  },
+  {
+    "id": "jorogumo-story",
+    "title": "The Legend of the Jorogumo",
+    "chapter": "",
+    "storyFile": "jorogumoStory"
+  },
+  {
+    "id": "yamamba-story",
+    "title": "The Secret of the Yamamba",
+    "chapter": "",
+    "storyFile": "yamambaStory"
+  },
+  {
+    "id": "peephole-story",
+    "title": "The Peephole",
+    "chapter": "",
+    "storyFile": "peepholeStory"
+  }
+]

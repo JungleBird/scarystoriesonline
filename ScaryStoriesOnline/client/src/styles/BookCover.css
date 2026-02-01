@@ -1,0 +1,102 @@
+.bookcover-container {
+  height: 200px;
+  width: 170px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.3);
+  border-left: 5px solid rgb(136, 136, 136); 
+  border-radius: 5px 15px 15px 5px;
+  transition: transform 0.3s ease;
+  padding: 20px 15px;
+  cursor: pointer;
+  position: relative;
+  perspective: 800px;
+}
+
+.bookcover-container:hover {
+  transform: translateY(-5px);
+}
+
+.bookcover-page,
+.bookcover-front-cover,
+.bookcover-back-cover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.bookcover-front-cover {
+  z-index: 3;
+  background-color: rgb(60, 60, 60);
+  border-radius: 5px 15px 15px 5px;
+  box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transform: none;
+}
+
+.bookcover-front-cover:hover {
+  transform: rotateY(-35deg);
+}
+
+.bookcover-container:focus .bookcover-front-cover {
+  transform: rotateY(-35deg);
+}
+
+.bookcover-container:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 4px;
+}
+  
+.bookcover-back-cover {
+  z-index: 1;
+  background-color: rgb(40, 40, 40);
+  border-radius: 0px 15px 15px 0px;
+}
+
+.bookcover-front-cover-text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  gap: 8px;
+  transform-style: preserve-3d;
+}
+
+.bookcover-page {
+  z-index: 2;
+  width: 95%;
+  height: 90%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(192, 192, 192);
+  border-radius: 0px 5px 5px 0px;
+  transition: box-shadow 0.5s ease, background 0.5s ease;
+}
+
+.bookcover-container:hover .bookcover-page {
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(139, 0, 0, 0.4) 0%,
+    rgba(255, 0, 0, 0.2) 15%,
+    rgb(192, 192, 192) 30%
+  );
+  box-shadow: inset 8px 0 24px rgba(255, 0, 0, 0.5),
+              inset 0 0 20px rgba(255, 0, 0, 0.4),
+              0 0 30px rgba(255, 0, 0, 0.4);
+}
+
+.bookcover-container:focus .bookcover-page {
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(139, 0, 0, 0.4) 0%,
+    rgba(255, 0, 0, 0.2) 15%,
+    rgb(192, 192, 192) 30%
+  );
+  box-shadow: inset 8px 0 24px rgba(255, 0, 0, 0.5),
+              inset 0 0 20px rgba(255, 0, 0, 0.4),
+              0 0 30px rgba(255, 0, 0, 0.4);
+}
