@@ -56,6 +56,27 @@ export function formatTextToParagraphs(textData) {
         continue;
       }
 
+      // If sentence contains *** (e.g., "*** text" or "text ***" or "*** text ***"), split it
+      if (sentence.includes("***")) {
+        const parts = sentence.split("***");
+        for (let i = 0; i < parts.length; i++) {
+          const part = parts[i].trim();
+          if (i < parts.length - 1) {
+            // Not the last part - push part (if not empty) then push ***
+            if (part) {
+              sentencesArray.push(part);
+            }
+            sentencesArray.push("***");
+          } else {
+            // Last part - only push if not empty
+            if (part) {
+              sentencesArray.push(part);
+            }
+          }
+        }
+        continue;
+      }
+
       let quotedRegex = /^".*"$/s;
 
       if (sentence && quotedRegex.test(sentence)) {
@@ -84,30 +105,27 @@ export function formatTextToParagraphs(textData) {
       }
     }
     const sentencesPerParagraph = 2;
-    for (let i = 0; i < sentencesArray.length; i += sentencesPerParagraph) {
-      // Check if current sentence is a triple asterisk break
-      if (sentencesArray[i] === "***") {
+    let buffer = [];
+    for (let i = 0; i < sentencesArray.length; i++) {
+      const sentence = sentencesArray[i];
+      if (sentence === "***") {
+        // If there is a pending sentence in buffer, push it as a paragraph
+        if (buffer.length > 0) {
+          paragraphsArray.push(buffer.join(" "));
+          buffer = [];
+        }
         paragraphsArray.push("***");
-        i -= sentencesPerParagraph - 1; // Adjust increment to only move forward by 1
         continue;
       }
-
-      const paragraphSentences = sentencesArray.slice(
-        i,
-        i + sentencesPerParagraph,
-      );
-
-      // Filter out any triple asterisks that might have been included in the slice
-      const filteredSentences = paragraphSentences.filter((s) => s !== "***");
-
-      if (filteredSentences.length > 0) {
-        paragraphsArray.push(`${filteredSentences.join(" ")}`);
+      buffer.push(sentence);
+      if (buffer.length === sentencesPerParagraph) {
+        paragraphsArray.push(buffer.join(" "));
+        buffer = [];
       }
-
-      // If we filtered out a ***, we need to add it separately and adjust index
-      if (paragraphSentences.length !== filteredSentences.length) {
-        paragraphsArray.push("***");
-      }
+    }
+    // Push any remaining sentence(s) in buffer as a paragraph
+    if (buffer.length > 0) {
+      paragraphsArray.push(buffer.join(" "));
     }
   }
 

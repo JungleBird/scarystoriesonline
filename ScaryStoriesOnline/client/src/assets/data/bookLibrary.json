@@ -41,5 +41,17 @@
     "title": "The Peephole",
     "chapter": "",
     "storyFile": "peepholeStory"
+  },
+  {
+    "id": "bus-story",
+    "title": "On the Bus",
+    "chapter": "",
+    "storyFile": "onTheBusStory"
+  },
+  {
+    "id": "window-portraits-story",
+    "title": "The Portraits",
+    "chapter": "",
+    "storyFile": "windowPortraitsStory"
   }
 ]
