@@ -209,12 +209,12 @@
 
   .submissions-input {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
   }
 
   .submissions-textarea {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     height: 600px;
   }
 
