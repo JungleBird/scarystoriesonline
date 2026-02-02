@@ -1,3 +1,4 @@
+A Collection of Scary Stories.
 
 This is a project started as an accessibility-oriented story reader, but it's also designed help people improve their focus and attention span by giving the reader a series of short, bite-sized reading tasks. 
 The app is also an experiment on my hypothesis that scary stories are better when the words are read at the right pace in the right amounts.
