@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getBookshelf, removeFromBookshelf } from "../utils/localStorageUtils";
 import BookCoverComponent from "./BookCoverComponent";
 import ScreenReaderComponent from "./ScreenReaderComponent";
+import { darkPurple, burgundy, burntOrange, darkTeal, darkGray } from "../styles/colors";
 import "../styles/Bookshelf.css";
 
 const BookshelfComponent = () => {
@@ -13,7 +14,15 @@ const BookshelfComponent = () => {
   useEffect(() => {
     // Load books from local storage on mount
     const savedBooks = getBookshelf();
-    setBooks(savedBooks);
+    const coverColors = [darkPurple, burgundy, burntOrange, darkTeal, darkGray];
+    
+    // Assign consistent colors to books based on their current index
+    const booksWithColors = savedBooks.map((book, index) => ({
+      ...book,
+      coverColor: book.coverColor || coverColors[index % coverColors.length]
+    }));
+    
+    setBooks(booksWithColors);
   }, []);
 
   const handleSelectBook = (book) => {

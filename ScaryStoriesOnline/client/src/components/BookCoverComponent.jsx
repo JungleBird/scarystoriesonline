@@ -13,8 +13,7 @@ export default function BookCoverComponent({
   onRemoveBook,
   index,
 }) {
-  const coverColors = [darkPurple, burgundy, burntOrange, darkTeal, darkGray];
-  const coverColor = coverColors[index % coverColors.length];
+  const coverColor = book.coverColor;
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" || e.key === " ") {
