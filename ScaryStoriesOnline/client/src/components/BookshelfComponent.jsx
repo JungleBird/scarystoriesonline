@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { getBookshelf, removeFromBookshelf } from "../utils/localStorageUtils";
 import BookCoverComponent from "./BookCoverComponent";
 import ScreenReaderComponent from "./ScreenReaderComponent";
@@ -65,15 +65,17 @@ const BookshelfComponent = () => {
         My Bookshelf
       </motion.h1>
       <div className="bookshelf-grid">
-        {books.map((book, index) => (
-          <BookCoverComponent
-            key={index}
-            index={index}
-            book={book}
-            onSelectBook={handleSelectBook}
-            onRemoveBook={handleRemoveBook}
-          />
-        ))}
+        <AnimatePresence mode="popLayout">
+          {books.map((book, index) => (
+            <BookCoverComponent
+              key={book.id}
+              index={index}
+              book={book}
+              onSelectBook={handleSelectBook}
+              onRemoveBook={handleRemoveBook}
+            />
+          ))}
+        </AnimatePresence>
       </div>
       {showModal && selectedBook && (
         <div
